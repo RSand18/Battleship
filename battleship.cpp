@@ -2,17 +2,17 @@
 #include <ctime>
 using namespace std;
 
-int rows = 10;
-int columns = 10;
+const int rows = 10;
+const int elements = 10;
 int numships = 5;
 
-int matrix[rows][columns];
+int matrix[rows][elements];
 
 void Clear()
 {
 	for (int i = 0; i < rows; i++)
 	{
-		for (int n = 0; n < columns; n++)
+		for (int n = 0; n < elements; n++)
 		{
 			matrix[i][n] = 0;
 		}
@@ -23,7 +23,7 @@ void Show()
 {
 	for (int i = 0; i < rows; i++)
 	{
-		for (int n = 0; n < columns; n++)
+		for (int n = 0; n < elements; n++)
 		{
 			cout << matrix[i][n] << " ";
 		}
@@ -37,7 +37,7 @@ void PlaceShips()
 	while (s < numships)
 	{
 		int x = rand() % rows;
-		int y = rand() % columns;
+		int y = rand() % elements;
 		if (matrix[x][y] != 1)
 		{
 			s++;
@@ -49,6 +49,7 @@ void PlaceShips()
 int main()
 {
 	Clear();
+	PlaceShips();
 	Show();
 	return 0;
 }
